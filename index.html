@@ -1,0 +1,129 @@
+FORM.HTML
+
+<html>
+<head></head>
+<title> validate form </title>
+<script>
+function validateForm(event){
+event.preventDefault();
+var name=document.getElementById('name').value;
+var email=document.getElementById('email').value;
+var mobile=document.getElementById('mobile').value;
+var password=document.getElementById('password').value;
+var nameRegex=/^[A-Z][a-z]/;
+if(!nameRegex.test(name)){
+    alert('Please Enter valid Name');
+    return false;
+}
+var emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(! emailRegex.test(email)){
+    alert('Please Enter a valid Email Address');
+    return false;
+}
+if(password.length<6){
+    alert('password must be at least 6 characters long');
+    return false;
+}
+
+var mobileRegex = /^[1-9]\d{9}$/;
+if(! mobileRegex.test(mobile)){
+        alert( "Mobile Number must be in 10 digits");
+   return false;
+}
+
+alert("Form submitted successfully");
+  }
+        </script>
+   
+    
+    <body>
+        <center>
+        <link href="style.css" rel="stylesheet">
+        <form id="myform" onsubmit="validateForm(event)">
+        <h1>Form Validation</h1>
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your first name" required><br><br>            
+        <label for="name">Last Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your last name" required><br><br>
+        <label for="email">Email id:</label>
+        <input type="email" id="email" name="email"  placeholder="Enter your email" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"  placeholder="Enter your password" required><br><br>
+        <label for="password"> Confirm Password:</label>
+        <input type="password" id="password" name="password"  placeholder="Confirm your password" required><br><br>
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" name="mobile" maxlength="10" placeholder="Enter your number"></br></br>
+        <label>Gender:</label>
+        <div class="form-inline">
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female</br></br>
+        </div></br>
+
+        <button type="submit">Submit</button>
+    </table>
+    </form>
+    </center></body>
+</html>
+
+STYLESHEET.CSS
+body {
+ 
+    font-size: 16px;
+    background: #f9f9f9;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+form {
+    
+    width: 300px;
+    background: #fff;
+    padding: 15px 40px 40px;
+    border: 1px solid #ccc;
+    margin: 50px auto 0;
+    border-radius: 5px;
+}
+label {
+    display: block;
+    margin-bottom: 5px
+}
+label i {
+    color: #999;
+    font-size: 80%;
+}
+input {
+    border: 1px solid #ccc;
+    padding: 10px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.row {
+    padding-bottom: 10px;
+}
+.form-inline {
+    border: 1px solid #ccc;
+    padding: 8px 10px 4px;
+    border-radius: 2px;
+}
+.form-inline label, .form-inline input {
+    display: inline-block;
+    width: auto;
+    padding-right: 15px;
+}
+input[type="submit"] {
+    font-size: 110%;
+    font-weight: 100;
+    background: #006dcc;
+    border-color: #016BC1;
+    box-shadow: 0 3px 0 #0165b6;
+    color: #fff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background: #0165b6;
+}
